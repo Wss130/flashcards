@@ -1,0 +1,134 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+/* Contêiner principal */
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Título */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #3498db;
+}
+
+/* Contêiner de flashcards */
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+/* Flashcard */
+.flashcard {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px; /* Perspectiva 3D */
+    position: relative;
+}
+
+/* Parte da frente e parte de trás do flashcard */
+.flashcard div {
+    width: 100%;
+    height: 100%;
+    background-color: #3498db;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    backface-visibility: hidden; /* Esconde o verso quando virado */
+    position: absolute;
+    transition: transform 0.6s ease-in-out;
+}
+
+.front {
+    background-color: #3498db;
+}
+
+.back {
+    background-color: #2ecc71;
+    transform: rotateY(180deg); /* Deixa o verso virado */
+}
+
+/* Quando o flashcard for virado */
+.flashcard.flip .front {
+    transform: rotateY(180deg);
+}
+
+.flashcard.flip .back {
+    transform: rotateY(0deg);
+}
+
+/* Botões */
+button {
+    padding: 10px 25px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Painel de controle */
+.controls {
+    margin-top: 20px;
+}
+
+#score-board {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .flashcard-container {
+        flex-direction: column;
+    }
+    .flashcard {
+        width: 80%;
+        height: 200px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    button {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
